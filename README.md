@@ -1,7 +1,6 @@
-
 # Drug Biomarker Prediction
 
-This project predicts drug response (biomarker values) from molecular data using a machine learning approach based on RDKit molecular descriptors and XGBoost regression.
+This project predicts drug response (biomarker values) from molecular data using a machine learning approach based on RDKit molecular descriptors and XGBoost regression. It also provides a user-friendly web interface using Streamlit for interactive predictions.
 
 ---
 
@@ -9,11 +8,13 @@ This project predicts drug response (biomarker values) from molecular data using
 
 ```
 ├── drug_biomarker_model.py         # Training script for XGBoost model
-├── valid_data_prediction.py       # Prediction script using trained model
-├── xgb_trained_model.json         # Trained XGBoost model
-├── submission.csv                 # Final output with predicted biomarker values
-├── train.csv                      # Training dataset (required by training script)
-├── valid.csv                      # Validation dataset (required by prediction script)
+├── valid_data_prediction.py        # Prediction script using trained model
+├── xgb_trained_model.json          # Trained XGBoost model
+├── app.py                         # Streamlit web app for interactive prediction
+├── submission.csv                  # Final output with predicted biomarker values
+├── train.csv                       # Training dataset (required by training script)
+├── valid.csv                       # Validation dataset (required by prediction script)
+├── requirements.txt                # Python dependencies
 ```
 
 ---
@@ -23,7 +24,7 @@ This project predicts drug response (biomarker values) from molecular data using
 Install the required packages:
 
 ```bash
-pip install pandas numpy scikit-learn xgboost rdkit
+pip install -r requirements.txt
 ```
 
 ---
@@ -64,12 +65,29 @@ python valid_data_prediction.py
 
 ---
 
+## 🌐 Streamlit Web App (`app.py`)
+
+The Streamlit app provides an interactive web interface for predicting biomarker values from SMILES strings.
+
+### How to Run
+
+1. Make sure all dependencies are installed (see [Requirements](#requirements)).
+2. Run the following command in your project directory:
+
+    ```bash
+    streamlit run app.py
+    ```
+
+3. A browser window will open. Enter a SMILES string to get the predicted bio marker value.
+
+---
+
 ## 📄 Output
 
 The final predictions are saved in:
 
 ```
-Submission.csv
+submission.csv
 ```
 
 It contains the columns:
@@ -91,3 +109,4 @@ This file can be directly used as the assignment submission.
   - Topological Polar Surface Area (TPSA)
   - Number of H-Bond Donors (HBD)
   - Number of H-Bond Acceptors (HBA)
+- The Streamlit app requires the trained model file (`xgb_trained_model.json`) to be present in the project directory.
