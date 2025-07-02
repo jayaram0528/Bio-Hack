@@ -2,7 +2,6 @@ from xgboost import XGBRegressor
 from rdkit import Chem
 from rdkit.Chem import AllChem
 import pandas as pd 
-from rdkit.Chem import Draw
 import numpy as np
 from rdkit.Chem import Descriptors
 
